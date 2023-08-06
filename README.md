@@ -19,7 +19,7 @@
     │   │   ├── table.html
     │   │   └── new_table_df.html
     │   └── uploads/                       # Directory for uploaded csv files
-    │
+    ├── test_files/                        # Contains the test files (template.csv, table_A.csv, table_B.csv) 
     ├── .gitignore
     ├── README.md
     ├── requirements.txt
