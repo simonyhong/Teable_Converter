@@ -6,7 +6,7 @@
         https://drive.google.com/file/d/1jok2pXgogmQFP1QWus74awjM41EPwCvg/view?usp=drive_link
     # And extract and put it in the directory as below.
 
-    Zero_assignment/
+    Table_Converter/
     ├── paraphrase-distilroberta-base-v2   # Put the extracted BERT model here, with the name as here.
     ├── myenv/                             # Make your own virtual environment
     ├── source/
