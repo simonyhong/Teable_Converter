@@ -29,6 +29,7 @@
 
 ## Installation & Usage
 In the case of VS-Code:
+(0) Get BERT model as described above
 (1) activate the the virtual environment
 (2) Install it:
         pip install -e .
