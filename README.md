@@ -1,22 +1,24 @@
 
 ## Directory Sturcture
-    # Note: The BERT folder (paraphrase-distilroberta-base-v2) is not included in GitHub reposititory, because of its big size. 
-    # Please get the BERT zip file from here: https://drive.google.com/file/d/1jok2pXgogmQFP1QWus74awjM41EPwCvg/view?usp=drive_link
+    # Note: The BERT folder (paraphrase-distilroberta-base-v2) is not included in GitHub reposititory.
+    # This is because of its big size. 
+    # Please get the BERT zip file from here: 
+        https://drive.google.com/file/d/1jok2pXgogmQFP1QWus74awjM41EPwCvg/view?usp=drive_link
     # And extract and put it in the directory as below.
 
     Zero_assignment/
     ├── paraphrase-distilroberta-base-v2   # Put the extracted BERT model here, with the name as here.
-    ├── myenv/              # Make your own virtual environment
+    ├── myenv/                             # Make your own virtual environment
     ├── source/
     │   ├── __init__.py
     │   ├── __main__.py
-    │   ├── app.py          # Flask application entry point
-    │   ├── model.py        # Script used by the application
-    │   ├── templates/      # Directory for Jinja2 templates
+    │   ├── app.py                         # Flask application entry point
+    │   ├── model.py                       # Script used by the application
+    │   ├── templates/                     # Directory for Jinja2 templates
     │   │   ├── home.html
     │   │   ├── table.html
     │   │   └── new_table_df.html
-    │   ├── uploads/        # Directory for uploaded csv files
+    │   ├── uploads/                       # Directory for uploaded csv files
     │
     ├── .gitignore
     ├── README.md
