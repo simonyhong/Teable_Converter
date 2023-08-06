@@ -18,7 +18,7 @@
     │   │   ├── home.html
     │   │   ├── table.html
     │   │   └── new_table_df.html
-    │   ├── uploads/                       # Directory for uploaded csv files
+    │   └── uploads/                       # Directory for uploaded csv files
     │
     ├── .gitignore
     ├── README.md
