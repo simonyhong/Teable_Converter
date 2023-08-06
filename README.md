@@ -19,7 +19,6 @@
     │   ├── uploads/        # Directory for uploaded csv files
     │
     ├── .gitignore
-    ├── LICENSE
     ├── README.md
     ├── requirements.txt
     └── setup.py
