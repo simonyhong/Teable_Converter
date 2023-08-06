@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <style>
+        .upload-area {
+            width: 400px;
+            height: 200px;
+            border: 2px solid blue;
+            line-height: 30px;
+            text-align: center;
+            font-size: 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Drag and Drop Files Here</h2>
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <div class="upload-area" id="uploadfile1">
+        <p>Drag and Drop</p>
+        <p>"Template.csv" Here</p>
+        <input type="file" name="template" style="display:none" />
+    </div>
+
+    <div class="upload-area" id="uploadfile2">
+        <p>Drag and Drop</p>
+        <p>"Table to be converted" Here</p>
+        <input type="file" name="table" style="display:none" />
+    </div>
+
+    <input type="submit" value="Upload">
+</form>
+
+
+<script>
+    // Add event listeners for drag and drop
+    const uploadArea1 = document.getElementById('uploadfile1');
+    const uploadArea2 = document.getElementById('uploadfile2');
+
+    [uploadArea1, uploadArea2].forEach(uploadArea => {
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            uploadArea.addEventListener(eventName, preventDefaults, false)
+        });
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            uploadArea.addEventListener(eventName, highlight, false)
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            uploadArea.addEventListener(eventName, unhighlight, false)
+        });
+
+        uploadArea.addEventListener('drop', handleDrop, false);
+    });
+
+    function preventDefaults (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    function highlight(e) {
+        this.classList.add('highlight');
+    }
+
+    function unhighlight(e) {
+        this.classList.remove('highlight');
+    }
+
+    function handleDrop(e) {
+        let dt = e.dataTransfer;
+        let files = dt.files;
+        this.querySelector('input[type="file"]').files = files;
+    }
+</script>
+
+
+
+
+</body>
+</html>

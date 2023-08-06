@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Page</title>
+    <style>
+        .highlighted {
+            background-color: yellow;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Highlight the first cell in each row.
+            $('tr').each(function() {
+                $(this).find('td').first().addClass('highlighted');
+            });
+
+            // Highlight a cell when it's clicked and remove highlight from other cells in the same row.
+            $('td').click(function() {
+                $(this).siblings().removeClass('highlighted');
+                $(this).addClass('highlighted');
+            });
+
+            // Send the indices of the highlighted cells when the accept button is clicked.
+            $('#accept-button').click(function() {
+                var highlightedIndices = [];
+                $('tr').each(function() {
+                    var highlightedCell = $(this).find('.highlighted');
+                    var index = $(this).children().index(highlightedCell);
+                    highlightedIndices.push(index);
+                });
+                fetch('/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(highlightedIndices)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    console.log('Click was recorded');
+                    window.location.href = "/show_new_table"; // Redirect to show the new table
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>Dataframe Table</h2>
+    <div id="dataframe">
+        {{ table|safe }}
+    </div>
+    <button id="accept-button">Accept</button>
+</body>
+</html>
