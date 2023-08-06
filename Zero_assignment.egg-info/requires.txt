@@ -1,4 +1,0 @@
-pandas
-sentence_transformers
-numpy
-flask
